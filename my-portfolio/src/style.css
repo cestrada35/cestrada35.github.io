@@ -12,6 +12,9 @@
   --color-light: #f1f5f9;
   --color-lighter: #ffffff;
   --color-gray: #94a3b8;
+
+  /* Custom font */
+  --font-family-outfit: 'Outfit', sans-serif;
 }
 
 /* Base styles */
@@ -30,7 +33,7 @@ body {
   max-width: 1200px;
 }
 
-/* Project card styles */
+/* Component styles */
 @layer components {
   .project-card {
     background: rgba(15, 23, 42, 0.7);
@@ -266,6 +269,154 @@ body {
     opacity: 0;
   }
   
+  /* Floating Squrcle Elements */
+  .floating-squrcle {
+    position: fixed;
+    z-index: 40;
+    cursor: pointer;
+    transition: all 0.4s ease;
+  }
+  
+  .floating-squrcle:hover {
+    transform: translateY(-5px) scale(1.05);
+  }
+  
+  .title-squrcle {
+    top: 2rem;
+    left: 2rem;
+  }
+  
+  .profile-squrcle {
+    top: 2rem;
+    right: 2rem;
+  }
+  
+  .squrcle-inner {
+    width: 60px;
+    height: 60px;
+    border-radius: 20px;
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .squrcle-inner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 0;
+    background: linear-gradient(to bottom, var(--color-primary), transparent);
+    transition: height 0.5s ease;
+    z-index: -1;
+  }
+  
+  .floating-squrcle:hover .squrcle-inner::before {
+    height: 100%;
+  }
+  
+  .squrcle-text {
+    color: var(--color-lighter);
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  
+  .profile-image-container {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  
+  .profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .ping-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: var(--color-primary);
+    opacity: 0.6;
+    z-index: 1;
+    animation: ping 2s ease-in-out infinite both;
+  }
+  
+  .hover-tooltip {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-dark);
+    color: var(--color-lighter);
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    z-index: 50;
+  }
+  
+  .profile-squrcle:hover .hover-tooltip {
+    opacity: 1;
+    visibility: visible;
+    top: -35px;
+  }
+  
+  /* Ping animation */
+  @keyframes ping {
+    0% {
+      transform: scale(1);
+      opacity: 0.6;
+    }
+    50% {
+      transform: scale(1.5);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0;
+    }
+  }
+  
+  /* Floating animation for both squrcles */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  .title-squrcle, .profile-squrcle {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .profile-squrcle {
+    animation-delay: 1s;
+  }
+  
   /* Responsive styles */
   @media (max-width: 768px) {
     .projects-grid {
@@ -290,6 +441,30 @@ body {
     
     .modal-title {
       font-size: 1.5rem;
+    }
+    
+    .title-squrcle {
+      top: 1rem;
+      left: 1rem;
+    }
+    
+    .profile-squrcle {
+      top: 1rem;
+      right: 1rem;
+    }
+    
+    .squrcle-inner {
+      width: 50px;
+      height: 50px;
+    }
+    
+    .profile-image-container {
+      width: 32px;
+      height: 32px;
+    }
+    
+    .squrcle-text {
+      font-size: 0.7rem;
     }
   }
 }

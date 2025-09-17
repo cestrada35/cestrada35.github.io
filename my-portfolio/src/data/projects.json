@@ -8,6 +8,33 @@
       "tags": ["Vue.js", "Node.js", "MongoDB"],
       "link": "#",
       "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' width='100' height='100'%3E%3Ccircle cx='50' cy='50' r='40' fill='none' stroke='rgba(255,255,255,0.1)' stroke-width='2' /%3E%3C/svg%3E"
+    },
+    {
+      "id": 2,
+      "title": "Task Management App",
+      "description": "Productivity application with drag-and-drop interface and team collaboration features.",
+      "extendedDescription": "This task management application helps teams organize their work efficiently. It features a Kanban-style board with drag-and-drop functionality, task assignments, due dates, progress tracking, and team communication tools. Users can create projects, invite team members, and visualize their workflow. The app includes real-time updates using WebSockets and offline capability for uninterrupted productivity.",
+      "tags": ["React", "Firebase", "Tailwind CSS"],
+      "link": "#",
+      "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' width='100' height='100'%3E%3Ccircle cx='50' cy='50' r='40' fill='none' stroke='rgba(255,255,255,0.1)' stroke-width='2' /%3E%3C/svg%3E"
+    },
+    {
+      "id": 3,
+      "title": "Health & Fitness Tracker",
+      "description": "Comprehensive health monitoring with data visualization and personalized recommendations.",
+      "extendedDescription": "The Health & Fitness Tracker is a comprehensive wellness application that helps users monitor their physical activity, nutrition, and sleep patterns. It integrates with wearable devices to collect data and provides insightful visualizations of health metrics. The app offers personalized workout plans and nutrition recommendations based on user goals and preferences. It also includes social features for challenges and sharing progress with friends.",
+      "tags": ["Vue.js", "Express", "MySQL"],
+      "link": "#",
+      "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' width='100' height='100'%3E%3Ccircle cx='50' cy='50' r='40' fill='none' stroke='rgba(255,255,255,0.1)' stroke-width='2' /%3E%3C/svg%3E"
+    },
+    {
+      "id": 4,
+      "title": "This Portfolio Itself!",
+      "description": "Comprehensive health monitoring with data visualization and personalized recommendations.",
+      "extendedDescription": "The Health & Fitness Tracker is a comprehensive wellness application that helps users monitor their physical activity, nutrition, and sleep patterns. It integrates with wearable devices to collect data and provides insightful visualizations of health metrics. The app offers personalized workout plans and nutrition recommendations based on user goals and preferences. It also includes social features for challenges and sharing progress with friends.",
+      "tags": ["Vue.js", "Express", "MySQL"],
+      "link": "#",
+      "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' width='100' height='100'%3E%3Ccircle cx='50' cy='50' r='40' fill='none' stroke='rgba(255,255,255,0.1)' stroke-width='2' /%3E%3C/svg%3E"
     }
   ]
 }
