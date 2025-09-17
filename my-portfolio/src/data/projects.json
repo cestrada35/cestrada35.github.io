@@ -4,6 +4,7 @@
       "id": 1,
       "title": "E-Commerce Platform",
       "description": "A modern online shopping experience with seamless checkout and payment integration.",
+      "extendedDescription": "This e-commerce platform was built with a focus on user experience and performance. It includes features like product filtering, user reviews, wishlists, and a secure checkout process with multiple payment options. The admin dashboard allows for easy inventory management and order tracking. Built with Vue.js for the frontend and Node.js with Express for the backend, using MongoDB for data storage.",
       "tags": ["Vue.js", "Node.js", "MongoDB"],
       "link": "#",
       "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' width='100' height='100'%3E%3Ccircle cx='50' cy='50' r='40' fill='none' stroke='rgba(255,255,255,0.1)' stroke-width='2' /%3E%3C/svg%3E"

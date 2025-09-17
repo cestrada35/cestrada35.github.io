@@ -1,5 +1,5 @@
 <template>
-  <div class="project-card slide-up" :class="{ visible: isVisible }" ref="card">
+  <div class="project-card slide-up" :class="{ visible: isVisible }" ref="card" @click="openModal">
     <div class="project-image">
       <div class="image-placeholder" :style="`background-image: url('${project.image}')`"></div>
     </div>
@@ -9,7 +9,7 @@
       <div class="project-tags">
         <span v-for="(tag, index) in project.tags" :key="index" class="tag">{{ tag }}</span>
       </div>
-      <a :href="project.link" class="project-link">View Project →</a>
+      <div class="view-project-hint">Click to view details →</div>
     </div>
   </div>
 </template>
@@ -28,6 +28,12 @@ export default {
       isVisible: false
     }
   },
+  emits: ['open-modal'],
+  methods: {
+    openModal() {
+      this.$emit('open-modal', this.project);
+    }
+  },
   mounted() {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -44,60 +50,25 @@ export default {
 </script>
 
 <style scoped>
-.project-image {
-  height: 180px;
-  background: linear-gradient(45deg, var(--color-primary-dark), var(--color-primary));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.image-placeholder {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0.3;
-  background-size: cover;
-}
-
-.project-content {
-  padding: 1.5rem;
-}
-
-.project-title {
-  font-size: 1.3rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: var(--color-lighter);
-}
-
-.project-description {
-  color: var(--color-gray);
-  font-size: 0.95rem;
-  margin-bottom: 1.5rem;
-}
-
-.project-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 1.5rem;
-}
-
-.project-link {
-  display: inline-flex;
-  align-items: center;
-  color: var(--color-primary);
-  text-decoration: none;
-  font-weight: 500;
+.project-card {
+  cursor: pointer;
   transition: all 0.3s ease;
 }
 
-.project-link:hover {
-  color: var(--color-secondary);
+.project-card:hover {
+  transform: translateY(-8px);
+}
+
+.view-project-hint {
+  color: var(--color-primary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-top: 1rem;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.project-card:hover .view-project-hint {
+  opacity: 1;
 }
 </style>

@@ -1,36 +1,120 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-b from-darker to-dark text-light font-outfit">
-    <div class="container py-12">
-      <header class="text-center mb-12 py-8 relative">
-        <h1 class="text-4xl md:text-5xl font-bold text-lighter mb-4">Project Portfolio</h1>
-        <p class="text-gray max-w-2xl mx-auto text-lg">A showcase of my latest work and personal projects</p>
-        <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-primary to-secondary rounded-full"></div>
+  <div class="app-container">
+    <div class="container">
+      <header class="header">
+        <h1 class="title">Project Portfolio</h1>
+        <p class="subtitle">A showcase of my latest work and personal projects</p>
+        <div class="header-divider"></div>
       </header>
       
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="projects-grid">
         <ProjectCard 
           v-for="project in projects" 
           :key="project.id" 
           :project="project" 
+          @open-modal="openModal"
         />
       </div>
+      
+      <ProjectModal 
+        :isOpen="modalOpen" 
+        :project="selectedProject" 
+        @close="closeModal" 
+      />
     </div>
   </div>
 </template>
 
 <script>
 import ProjectCard from './components/ProjectCard.vue'
+import ProjectModal from './components/ProjectModal.vue'
 import projectsData from './data/projects.json'
 
 export default {
   name: 'App',
   components: {
-    ProjectCard
+    ProjectCard,
+    ProjectModal
   },
   data() {
     return {
-      projects: projectsData.projects
+      projects: projectsData.projects,
+      modalOpen: false,
+      selectedProject: null
+    }
+  },
+  methods: {
+    openModal(project) {
+      this.selectedProject = project;
+      this.modalOpen = true;
+    },
+    closeModal() {
+      this.modalOpen = false;
+      this.selectedProject = null;
     }
   }
 }
 </script>
+
+<!-- Keep the existing styles from previous step -->
+<style scoped>
+.app-container {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, var(--color-darker), var(--color-dark));
+  color: var(--color-light);
+  font-family: 'Outfit', sans-serif;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 2rem 0;
+  position: relative;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--color-lighter);
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: var(--color-gray);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.header-divider {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+  border-radius: 2px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .container {
+    padding: 1.5rem;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+}
+</style>
