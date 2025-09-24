@@ -2,39 +2,87 @@
   "projects": [
     {
       "id": 1,
-      "title": "E-Commerce Platform",
-      "description": "A modern online shopping experience with seamless checkout and payment integration.",
-      "extendedDescription": "This e-commerce platform was built with a focus on user experience and performance. It includes features like product filtering, user reviews, wishlists, and a secure checkout process with multiple payment options. The admin dashboard allows for easy inventory management and order tracking. Built with Vue.js for the frontend and Node.js with Express for the backend, using MongoDB for data storage.",
-      "tags": ["Vue.js", "Node.js", "MongoDB"],
-      "link": "#",
-      "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' width='100' height='100'%3E%3Ccircle cx='50' cy='50' r='40' fill='none' stroke='rgba(255,255,255,0.1)' stroke-width='2' /%3E%3C/svg%3E"
+      "title": "Neuroviewer",
+      "description": "A 3D web viewer for (e)swc files.",
+      "extendedDescription": "This 3D web viewer allows for immediate viewing of swc files. These files contain three-dimensional structure of neurons. Neuroviewer supports loading these datasets from GitHub, Google Drive, as well as local uploads!",
+      "tags": ["Vue.js", "Node.js", "Google Cloud API", "Webpack"],
+      "link": "https://brain.neurobio.ucla.edu/neuroviewer/",
+      "image": "",
+      "image2": "images/neuroviewer.png",
+      "gif": "gifs/neuroviewer.gif"
     },
     {
       "id": 2,
-      "title": "Task Management App",
+      "title": "Helen's Studio",
       "description": "Productivity application with drag-and-drop interface and team collaboration features.",
-      "extendedDescription": "This task management application helps teams organize their work efficiently. It features a Kanban-style board with drag-and-drop functionality, task assignments, due dates, progress tracking, and team communication tools. Users can create projects, invite team members, and visualize their workflow. The app includes real-time updates using WebSockets and offline capability for uninterrupted productivity.",
-      "tags": ["React", "Firebase", "Tailwind CSS"],
+      "extendedDescription": "This task management application helps teams organize their work efficiently...",
+      "tags": ["SvelteJS", "SQL", "Tailwind CSS"],
       "link": "#",
-      "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' width='100' height='100'%3E%3Ccircle cx='50' cy='50' r='40' fill='none' stroke='rgba(255,255,255,0.1)' stroke-width='2' /%3E%3C/svg%3E"
+      "image": "images/helen_studio_1.png",
+      "image2": "images/helen_studio_2.png",
+      "gif": ""
     },
     {
       "id": 3,
-      "title": "Health & Fitness Tracker",
+      "title": "Inception",
       "description": "Comprehensive health monitoring with data visualization and personalized recommendations.",
-      "extendedDescription": "The Health & Fitness Tracker is a comprehensive wellness application that helps users monitor their physical activity, nutrition, and sleep patterns. It integrates with wearable devices to collect data and provides insightful visualizations of health metrics. The app offers personalized workout plans and nutrition recommendations based on user goals and preferences. It also includes social features for challenges and sharing progress with friends.",
-      "tags": ["Vue.js", "Express", "MySQL"],
+      "extendedDescription": "The Health & Fitness Tracker is a comprehensive wellness application...",
+      "tags": ["Vue(3)", "Django", "Docker-Compose", "Prefect"],
       "link": "#",
-      "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' width='100' height='100'%3E%3Ccircle cx='50' cy='50' r='40' fill='none' stroke='rgba(255,255,255,0.1)' stroke-width='2' /%3E%3C/svg%3E"
+      "image": "images/inception_1.png",
+      "image2": "images/inception_2.png",
+      "gif": ""
     },
     {
       "id": 4,
-      "title": "This Portfolio Itself!",
+      "title": "Zeppelin",
       "description": "Comprehensive health monitoring with data visualization and personalized recommendations.",
-      "extendedDescription": "The Health & Fitness Tracker is a comprehensive wellness application that helps users monitor their physical activity, nutrition, and sleep patterns. It integrates with wearable devices to collect data and provides insightful visualizations of health metrics. The app offers personalized workout plans and nutrition recommendations based on user goals and preferences. It also includes social features for challenges and sharing progress with friends.",
-      "tags": ["Vue.js", "Express", "MySQL"],
+      "extendedDescription": "The Health & Fitness Tracker is a comprehensive wellness application...",
+      "tags": ["SvelteJS", "Django", "GitHub Actions"],
       "link": "#",
-      "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' width='100' height='100'%3E%3Ccircle cx='50' cy='50' r='40' fill='none' stroke='rgba(255,255,255,0.1)' stroke-width='2' /%3E%3C/svg%3E"
+      "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' width='100' height='100'%3E%3Ccircle cx='50' cy='50' r='40' fill='none' stroke='rgba(255,255,255,0.1)' stroke-width='2' /%3E%3C/svg%3E",
+      "gif": "/gifs/fitness-tracker-demo.gif"
+    },
+    {
+      "id": 5,
+      "title": "Screen Zlash",
+      "description": "Comprehensive health monitoring with data visualization and personalized recommendations.",
+      "extendedDescription": "The Health & Fitness Tracker is a comprehensive wellness application...",
+      "tags": ["Python", "Jupyter", "Anaconda"],
+      "link": "#",
+      "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' width='100' height='100'%3E%3Ccircle cx='50' cy='50' r='40' fill='none' stroke='rgba(255,255,255,0.1)' stroke-width='2' /%3E%3C/svg%3E",
+      "gif": "/gifs/fitness-tracker-demo.gif"
+    },
+    {
+      "id": 6,
+      "title": "Sav3",
+      "description": "Comprehensive health monitoring with data visualization and personalized recommendations.",
+      "extendedDescription": "The Health & Fitness Tracker is a comprehensive wellness application...",
+      "tags": ["Python", "Jupyter", "Anaconda"],
+      "link": "#",
+      "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' width='100' height='100'%3E%3Ccircle cx='50' cy='50' r='40' fill='none' stroke='rgba(255,255,255,0.1)' stroke-width='2' /%3E%3C/svg%3E",
+      "gif": "/gifs/fitness-tracker-demo.gif"
+    },
+    {
+      "id": 7,
+      "title": "Pythonic Projects",
+      "description": "Comprehensive health monitoring with data visualization and personalized recommendations.",
+      "extendedDescription": "The Health & Fitness Tracker is a comprehensive wellness application...",
+      "tags": ["Python", "Jupyter", "Anaconda"],
+      "link": "#",
+      "image": "",
+      "image2": "images/parallelize.png",
+      "gif": "gifs/tiff_roi.gif"
+    },
+    {
+      "id": 8,
+      "title": "This Portfolio Itself!",
+      "description": "A showcase of my skills and projects built with modern web technologies.",
+      "extendedDescription": "This portfolio website demonstrates my expertise in Vue.js, responsive design...",
+      "tags": ["Vue.js", "Vite", "CSS3"],
+      "link": "#",
+      "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' width='100' height='100'%3E%3Ccircle cx='50' cy='50' r='40' fill='none' stroke='rgba(255,255,255,0.1)' stroke-width='2' /%3E%3C/svg%3E",
+      "gif": "/gifs/portfolio-demo.gif"
     }
   ]
 }

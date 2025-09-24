@@ -3,7 +3,7 @@
     <!-- Floating Title Squrcle -->
     <div class="floating-squrcle title-squrcle">
       <div class="squrcle-inner">
-        <span class="squrcle-text">Christian Estrada's Portfolio</span>
+        <span class="squrcle-text">My Portfolio</span>
       </div>
     </div>
 
@@ -20,7 +20,7 @@
 
     <div class="container mx-auto px-4 py-12 max-w-6xl relative z-10">
       <header class="text-center mb-12 py-8 relative">
-        <h1 class="text-4xl md:text-5xl font-bold text-lighter mb-4">Project Portfolio</h1>
+        <h1 class="text-4xl md:text-5xl font-bold text-lighter mb-4">Christian Estrada's Portfolio</h1>
         <p class="text-gray max-w-2xl mx-auto text-lg">A showcase of my latest work and personal projects</p>
         <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-primary to-secondary rounded-full"></div>
       </header>

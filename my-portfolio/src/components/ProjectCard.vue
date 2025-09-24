@@ -1,7 +1,18 @@
 <template>
   <div class="project-card slide-up" :class="{ visible: isVisible }" ref="card" @click="openModal">
     <div class="project-image">
-      <div class="image-placeholder" :style="`background-image: url('${project.image}')`"></div>
+      <!-- Show GIF on hover, static image by default -->
+      <div class="image-container">
+        <img 
+          v-if="project.gif" 
+          :src="project.gif" 
+          alt="Project demo" 
+          class="project-gif"
+          @mouseenter="startGif"
+          @mouseleave="stopGif"
+        />
+        <div v-else class="image-placeholder" :style="`background-image: url('${project.image}')`"></div>
+      </div>
     </div>
     <div class="project-content">
       <h3 class="project-title">{{ project.title }}</h3>
@@ -25,13 +36,21 @@ export default {
   },
   data() {
     return {
-      isVisible: false
+      isVisible: false,
+      isGifPlaying: false
     }
   },
   emits: ['open-modal'],
   methods: {
     openModal() {
       this.$emit('open-modal', this.project);
+    },
+    startGif() {
+        console.log('Starting gif')
+        this.isGifPlaying = true;
+    },
+    stopGif() {
+        this.isGifPlaying = false;
     }
   },
   mounted() {
@@ -53,10 +72,38 @@ export default {
 .project-card {
   cursor: pointer;
   transition: all 0.3s ease;
+  overflow: hidden; /* Important for GIF container */
 }
 
 .project-card:hover {
   transform: translateY(-8px);
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 200px; /* Adjust based on your design */
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.project-gif {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-gif {
+  transform: scale(1.05);
+}
+
+.image-placeholder {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .view-project-hint {
@@ -69,6 +116,30 @@ export default {
 }
 
 .project-card:hover .view-project-hint {
+  opacity: 1;
+}
+
+/* Optional: Add a play icon overlay for GIFs */
+.image-container::after {
+  content: '▶';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.project-card:hover .image-container::after {
   opacity: 1;
 }
 </style>
