@@ -23,10 +23,17 @@
             </div>
             
             <p class="modal-description">{{ project.extendedDescription }}</p>
-            
-            <a :href="project.link" class="project-link modal-link" target="_blank">
-              View Project ↗
-            </a>
+            <div v-if="project.repo">
+              <a :href="project.link" class="project-link modal-link mr-4" target="_blank">
+                View Project ↗
+              </a>
+              <a :href="project.repo" class="project-link modal-link" target="_blank">
+                View Source Code ↗
+              </a>
+            </div>
+            <div v-else>
+              <p class="modal-link">Unfortunately this project belongs to a private repository!</p>
+            </div>
           </div>
         </div>
       </div>

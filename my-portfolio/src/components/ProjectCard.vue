@@ -4,14 +4,23 @@
       <!-- Show GIF on hover, static image by default -->
       <div class="image-container">
         <img 
-          v-if="project.gif" 
-          :src="project.gif" 
-          alt="Project demo" 
-          class="project-gif"
-          @mouseenter="startGif"
-          @mouseleave="stopGif"
+            v-if="project.gif" 
+            :src="project.gif" 
+            alt="Project demo" 
+            class="project-gif"
+            @mouseenter="startGif"
+            @mouseleave="stopGif"
+            :style="{ objectPosition: `0 ${project.gif_offset}px` }"
         />
-        <div v-else class="image-placeholder" :style="`background-image: url('${project.image}')`"></div>
+        <div 
+            v-else 
+            class="image-placeholder" 
+            :style="{
+            backgroundImage: `url('${project.image}')`,
+            objectPosition: `0 ${project.img_offset}px`
+            }" 
+        ></div>
+            
       </div>
     </div>
     <div class="project-content">
@@ -46,11 +55,10 @@ export default {
       this.$emit('open-modal', this.project);
     },
     startGif() {
-        console.log('Starting gif')
-        this.isGifPlaying = true;
+      this.isGifPlaying = true;
     },
     stopGif() {
-        this.isGifPlaying = false;
+      this.isGifPlaying = false;
     }
   },
   mounted() {
@@ -119,8 +127,8 @@ export default {
   opacity: 1;
 }
 
-/* Optional: Add a play icon overlay for GIFs */
-.image-container::after {
+/* Optional:  Play icon overlay for GIFs, defaults for imgs too... */
+/* .image-container::after {
   content: '▶';
   position: absolute;
   top: 50%;
@@ -137,7 +145,7 @@ export default {
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;
-}
+} */
 
 .project-card:hover .image-container::after {
   opacity: 1;
