@@ -1,5 +1,8 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-b from-darker to-dark text-light font-outfit relative overflow-hidden">
+  <div class="min-h-screen text-light font-outfit relative overflow-hidden">
+    <!-- Parallax Background -->
+    <div id="parallax" class="parallax-bg"></div>
+
     <!-- Floating Profile Squrcle -->
     <div class="floating-squrcle profile-squrcle" @click="openAboutModal">
       <div class="squrcle-inner">
@@ -14,7 +17,7 @@
     <div class="container mx-auto px-4 py-12 max-w-6xl relative z-10">
       <header class="text-center mb-12 py-8 relative">
         <h1 class="text-4xl md:text-5xl font-bold text-lighter mb-4">Christian Estrada</h1>
-        <p class="text-gray max-w-2xl mx-auto text-lg">Hi, welcome to my porfolio, check out my work!</p>
+        <p class="text-gray max-w-2xl mx-auto text-lg">Hi, welcome to my portfolio, check out my work!</p>
         
         <!-- Modern Skills Toggle -->
         <div class="skills-toggle-section mb-16 mt-12">
@@ -108,6 +111,7 @@
     </div>
   </div>
 </template>
+
 <script>
 import ProjectCard from './components/ProjectCard.vue'
 import ProjectModal from './components/ProjectModal.vue'
@@ -158,6 +162,12 @@ export default {
     }
   },
   methods: {
+    parallax() {
+      const parallax = document.getElementById("parallax");
+      if (parallax) {
+        parallax.style.top = -(window.pageYOffset / 4) + 'px';
+      }
+    },
     toggleSkills() {
       this.skillsVisible = !this.skillsVisible;
     },
@@ -181,6 +191,12 @@ export default {
     closeAboutModal() {
       this.aboutModalOpen = false;
     }
+  },
+  mounted() {
+    window.addEventListener("scroll", this.parallax, false);
+  },
+  beforeUnmount() {
+    window.removeEventListener("scroll", this.parallax, false);
   }
 }
 </script>
