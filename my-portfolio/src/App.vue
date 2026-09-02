@@ -164,9 +164,27 @@ export default {
   methods: {
     parallax() {
       const parallax = document.getElementById("parallax");
-      if (parallax) {
-        parallax.style.top = -(window.pageYOffset / 4) + 'px';
+      if (!parallax) return;
+
+      const viewportHeight = window.innerHeight;
+      const imageHeight = parallax.offsetHeight;
+      const container = parallax.parentElement;
+
+      const containerRect = container.getBoundingClientRect();
+      const containerTop = containerRect.top + window.scrollY;
+      const containerHeight = containerRect.height;
+      const scrollRange = containerHeight - viewportHeight;
+      if (scrollRange <= 0) {
+        parallax.style.top = '0px';
+        return;
       }
+
+      const scrolled = window.scrollY - containerTop;
+      let progress = Math.min(1, Math.max(0, scrolled / scrollRange));
+      const maxOffset = -(imageHeight - viewportHeight);
+      const offset = progress * maxOffset;
+
+      parallax.style.top = offset + 'px';
     },
     toggleSkills() {
       this.skillsVisible = !this.skillsVisible;
