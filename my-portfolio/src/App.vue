@@ -19,79 +19,21 @@
         <h1 class="text-4xl md:text-5xl font-bold text-lighter mb-4">Christian Estrada</h1>
         <p class="text-gray max-w-2xl mx-auto text-lg">Hi, welcome to my portfolio, check out my work!</p>
         
-        <!-- Modern Skills Toggle -->
-        <div class="skills-toggle-section mb-16 mt-12">
-          <div class="flex flex-col items-center">
-            <!-- Toggle Button -->
-            <button 
-              class="skills-toggle-btn group"
-              @click="toggleSkills"
-              :class="{ 'skills-visible': skillsVisible }"
-            >
-              <div class="toggle-content">
-                <span class="toggle-text">
-                  {{ skillsVisible ? 'Hide Tech Stack' : 'View Tech Stack' }}
-                </span>
-                <div class="toggle-icon">
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path 
-                      d="M4 6L8 10L12 6" 
-                      stroke="currentColor" 
-                      stroke-width="2" 
-                      stroke-linecap="round" 
-                      stroke-linejoin="round"
-                      :class="{ 'rotate-180': skillsVisible }"
-                    />
-                  </svg>
-                </div>
-              </div>
-              <div class="toggle-glow"></div>
-            </button>
-
-            <!-- Skills Grid -->
-            <transition name="skills-slide">
-              <div v-if="skillsVisible" class="skills-grid-container mt-8">
-                <div class="skills-header mb-6 text-center">
-                  <h3 class="text-xl font-semibold text-lighter mb-2">Technologies & Frameworks</h3>
-                  <p class="text-gray text-sm">Some stats!</p>
-                </div>
-                
-                <div class="skills-grid">
-                  <div 
-                    v-for="(skill, index) in uniqueSkills" 
-                    :key="skill.name"
-                    class="skill-card"
-                    :class="`skill-tier-${skill.tier}`"
-                    :style="getCardStyle(index)"
-                    @mouseenter="hoveredSkill = skill.name"
-                    @mouseleave="hoveredSkill = null"
-                  >
-                    <div class="skill-content">
-                      <span class="skill-name">{{ skill.name }}</span>
-                      <div class="skill-meta">
-                        <span class="skill-count">{{ skill.count }} project{{ skill.count > 1 ? 's' : '' }}</span>
-                      </div>
-                    </div>
-                    <div class="skill-progress">
-                      <div 
-                        class="progress-bar" 
-                        :style="{ width: `${(skill.count / maxSkillCount) * 100}%` }"
-                      ></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </transition>
-          </div>
-        </div>
-        <!-- End Modern Skills Toggle -->
-        
         <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-primary to-secondary rounded-full"></div>
       </header>
+
+      <!-- Multiselect Skills Box -->
+        <MultiselectBox 
+          :all-skills="skillNameList"
+          :selected-skills="selectedSkills"
+          :filtered-project-count="filteredProjects.length"
+          @update:selected-skills="selectedSkills = $event"
+        />
+      <!-- End Multiselect Skills Box -->
       
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <ProjectCard 
-          v-for="project in projects" 
+          v-for="project in filteredProjects"
           :key="project.id" 
           :project="project" 
           @open-modal="openModal"
@@ -116,6 +58,7 @@
 import ProjectCard from './components/ProjectCard.vue'
 import ProjectModal from './components/ProjectModal.vue'
 import AboutModal from './components/AboutModal.vue'
+import MultiselectBox from './components/MultiselectBox.vue'
 import projectsData from './data/projects.json'
 
 export default {
@@ -123,6 +66,7 @@ export default {
   components: {
     ProjectCard,
     ProjectModal,
+    MultiselectBox,
     AboutModal
   },
   data() {
@@ -132,7 +76,8 @@ export default {
       aboutModalOpen: false,
       selectedProject: null,
       skillsVisible: false,
-      hoveredSkill: null
+      hoveredSkill: null,
+      selectedSkills: []
     }
   },
   computed: {
@@ -159,7 +104,20 @@ export default {
     },
     maxSkillCount() {
       return Math.max(...this.uniqueSkills.map(skill => skill.count));
+    },
+    filteredProjects() {
+    // If no filters are active, return all projects
+    if (this.selectedSkills.length === 0) {
+      return this.projects;
     }
+    // Otherwise, filter by tag
+    return this.projects.filter(project => {
+      return project.tags.some(tag => this.selectedSkills.includes(tag));
+    });
+  },
+  skillNameList() {
+    return this.uniqueSkills.map(skill => skill.name);
+  }
   },
   methods: {
     parallax() {
