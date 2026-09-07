@@ -19,9 +19,7 @@
           
           <div class="about-details">
             <p class="about-description">
-              Hi! I'm a passionate software developer who loves creating beautiful, functional web experiences. 
-              With expertise in modern JavaScript frameworks and a keen eye for design, I strive to build 
-              applications that are both visually appealing and highly performant for my users!
+              Hi, I'm a software developer based in Glendale, CA. I specialize in turning big ideas into clean, performant, web experiapplications with a strong emphasis on maintainable architecture and thoughtful design. I believe great software is built collaboratively. If my background catches your eye, please don't hesitate to click the buttons below and say hello. I'm always keen to connect, learn about your challenges, and see where my skills can add the most value.
             </p>
             
             <!-- <div class="skills-section">
@@ -39,7 +37,7 @@
             <div class="contact-section">
               <h3 class="contact-title">Let's get in touch!</h3>
               <div class="contact-links">
-                <a href="mailto:cestrada0098@gmail.com" class="contact-link">
+                <a href="mailto:cestrada98@outlook.com" class="contact-link">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                     <polyline points="22,6 12,13 2,6"></polyline>
