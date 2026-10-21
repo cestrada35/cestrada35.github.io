@@ -22,6 +22,11 @@
           </div>
 
           <template v-if="project.caseStudy">
+            <section v-if="project.caseStudy.tip" class="cs-section">
+              <h3>Tip:</h3>
+              <p>{{ project.caseStudy.tip }}</p>
+            </section>
+
             <section class="cs-section">
               <h3>The Problem</h3>
               <p>{{ project.caseStudy.problem }}</p>
