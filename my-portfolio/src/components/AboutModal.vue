@@ -1,64 +1,43 @@
 <template>
   <transition name="modal">
-    <div v-if="isOpen" class="modal-overlay" @click.self="closeModal">
-      <div class="modal-container about-modal">
-        <button class="modal-close" @click="closeModal">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <div v-if="isOpen" class="modal-overlay" @click.self="close">
+      <div class="modal-panel">
+        <button class="modal-close" @click="close" aria-label="Close">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
             <line x1="18" y1="6" x2="6" y2="18"></line>
             <line x1="6" y1="6" x2="18" y2="18"></line>
           </svg>
         </button>
-        
-        <div class="modal-content">
-          <div class="about-header">
-            <div class="about-image-container">
-              <img src="/profile_p.png" alt="Profile" class="about-image" />
+
+        <div class="about">
+          <div class="about-eyebrow">About</div>
+
+          <div class="about-head">
+            <div class="about-image">
+              <img src="/profile_p.png" alt="Christian Estrada" />
             </div>
-            <h2 class="about-title">About Me</h2>
+            <div>
+              <h2 class="about-title">Hi, I'm Christian.</h2>
+              <div class="about-meta">Full-stack developer · Glendale, CA</div>
+            </div>
           </div>
-          
-          <div class="about-details">
-            <p class="about-description">
-              Hi, I'm a software developer based in Glendale, CA. I specialize in turning big ideas into clean, performant, web experiapplications with a strong emphasis on maintainable architecture and thoughtful design. I believe great software is built collaboratively. If my background catches your eye, please don't hesitate to click the buttons below and say hello. I'm always keen to connect, learn about your challenges, and see where my skills can add the most value.
-            </p>
-            
-            <!-- <div class="skills-section">
-              <h3 class="skills-title">Skills & Technologies</h3>
-              <div class="skills-grid">
-                <span class="skill-tag">Vue.js</span>
-                <span class="skill-tag">React</span>
-                <span class="skill-tag">Node.js</span>
-                <span class="skill-tag">Tailwind CSS</span>
-                <span class="skill-tag">TypeScript</span>
-                <span class="skill-tag">UI/UX Design</span>
-              </div>
-            </div> -->
-            
-            <div class="contact-section">
-              <h3 class="contact-title">Let's get in touch!</h3>
-              <div class="contact-links">
-                <a href="mailto:cestrada98@outlook.com" class="contact-link">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                    <polyline points="22,6 12,13 2,6"></polyline>
-                  </svg>
-                  Email
-                </a>
-                <a href="https://github.com/cestrada35" target="_blank" class="contact-link">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                  </svg>
-                  GitHub
-                </a>
-                <a href="https://www.linkedin.com/in/christian-estrada-dev/" target="_blank" class="contact-link">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                    <rect x="2" y="9" width="4" height="12"></rect>
-                    <circle cx="4" cy="4" r="2"></circle>
-                  </svg>
-                  LinkedIn
-                </a>
-              </div>
+
+          <p class="about-body">
+            I'm a full-stack web developer based in Glendale, CA. I specialize in turning teams' ideas into clean, performant web applications. With a strong emphasis on maintainable architecture, thoughtful design, and the belief that great software is built collaboratively. I'm confident in my ability to contribute to your team's success, and I'd love to discuss a potential collaboration.
+          </p>
+
+          <div class="about-contact">
+            <h3 class="about-contact-title">Let's get in touch</h3>
+            <div class="contact-links">
+              <a href="mailto:cestrada98@outlook.com" class="contact-link">
+                Email
+              </a>
+              <a href="https://github.com/cestrada35" target="_blank" rel="noopener" class="contact-link">
+                GitHub
+              </a>
+              <a href="https://www.linkedin.com/in/christian-estrada-dev/" target="_blank" rel="noopener" class="contact-link">
+                LinkedIn
+              </a>
             </div>
           </div>
         </div>
@@ -71,139 +50,156 @@
 export default {
   name: 'AboutModal',
   props: {
-    isOpen: {
-      type: Boolean,
-      required: true
-    }
+    isOpen: { type: Boolean, required: true }
   },
   emits: ['close'],
-  methods: {
-    closeModal() {
-      this.$emit('close');
+  watch: {
+    isOpen(val) {
+      document.body.style.overflow = val ? 'hidden' : ''
     }
   },
-  watch: {
-    isOpen(newVal) {
-      if (newVal) {
-        document.body.style.overflow = 'hidden';
-      } else {
-        document.body.style.overflow = 'auto';
-      }
+  methods: {
+    close() { this.$emit('close') },
+    onKey(e) {
+      if (e.key === 'Escape' && this.isOpen) this.close()
     }
+  },
+  mounted() {
+    window.addEventListener('keydown', this.onKey)
+  },
+  beforeUnmount() {
+    window.removeEventListener('keydown', this.onKey)
+    document.body.style.overflow = ''
   }
 }
 </script>
 
 <style scoped>
-.about-modal {
-  max-width: 600px;
+.modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(20, 20, 20, 0.55);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1.5rem;
 }
 
-.about-header {
-  text-align: center;
+.modal-panel {
+  background: var(--color-paper);
+  border-radius: 4px;
+  max-width: 620px;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--color-rule);
+  padding: 3rem 2.5rem;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1.25rem; right: 1.25rem;
+  background: transparent;
+  border: 1px solid var(--color-rule);
+  border-radius: 50%;
+  width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--color-ink);
+  transition: all 0.2s;
+}
+.modal-close:hover {
+  background: var(--color-ink);
+  color: var(--color-paper);
+  border-color: var(--color-ink);
+}
+
+.about-eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+.about-head {
+  display: flex; gap: 1.5rem; align-items: center;
   margin-bottom: 2rem;
 }
-
-.about-image-container {
-  width: 100px;
-  height: 100px;
-  margin: 0 auto 1rem;
+.about-image {
+  width: 80px; height: 80px;
   border-radius: 50%;
   overflow: hidden;
-  border: 3px solid var(--color-primary);
+  border: 1px solid var(--color-rule);
+  flex-shrink: 0;
 }
-
-.about-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+.about-image img { width: 100%; height: 100%; object-fit: cover; }
 
 .about-title {
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--color-lighter);
-  margin-bottom: 0.5rem;
+  font-family: var(--font-display);
+  font-size: 1.85rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.4rem;
 }
-
-.about-description {
-  color: var(--color-gray);
-  line-height: 1.7;
-  margin-bottom: 2rem;
-  text-align: center;
-}
-
-.skills-section {
-  margin-bottom: 2rem;
-}
-
-.skills-title {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: var(--color-lighter);
-  margin-bottom: 1rem;
-  text-align: center;
-}
-
-.skills-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.5rem;
-}
-
-.skill-tag {
-  background: rgba(139, 92, 246, 0.2);
-  color: var(--color-primary);
-  padding: 0.4rem 0.8rem;
-  border-radius: 20px;
-  font-size: 0.9rem;
+.about-meta {
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-ink-soft);
   font-weight: 500;
 }
 
-.contact-section {
-  text-align: center;
+.about-body {
+  color: var(--color-ink-soft);
+  font-size: 1rem;
+  line-height: 1.75;
+  margin: 0 0 2.5rem;
 }
 
-.contact-title {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: var(--color-lighter);
-  margin-bottom: 1rem;
+.about-contact {
+  border-top: 1px solid var(--color-rule);
+  padding-top: 2rem;
 }
-
+.about-contact-title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin: 0 0 1rem;
+  color: var(--color-ink);
+}
 .contact-links {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
+  display: flex; gap: 0.75rem; flex-wrap: wrap;
 }
-
 .contact-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--color-primary);
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-  border: 1px solid rgba(139, 92, 246, 0.3);
-  border-radius: 8px;
-  transition: all 0.3s ease;
+  padding: 0.65rem 1.25rem;
+  border: 1px solid var(--color-rule);
+  border-radius: 100px;
+  color: var(--color-ink);
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+.contact-link:hover {
+  background: var(--color-ink);
+  border-color: var(--color-ink);
+  color: var(--color-paper);
 }
 
-.contact-link:hover {
-  background: rgba(139, 92, 246, 0.1);
-  transform: translateY(-2px);
-}
+.modal-enter-active,
+.modal-leave-active { transition: opacity 0.25s ease; }
+.modal-enter-from,
+.modal-leave-to { opacity: 0; }
+.modal-enter-active .modal-panel,
+.modal-leave-active .modal-panel { transition: transform 0.25s ease; }
+.modal-enter-from .modal-panel,
+.modal-leave-to .modal-panel { transform: translateY(12px); }
 
 @media (max-width: 640px) {
-  .contact-links {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .contact-link {
-    width: 200px;
-    justify-content: center;
-  }
+  .modal-panel { padding: 2.5rem 1.5rem; }
+  .about-head { flex-direction: column; align-items: flex-start; gap: 1rem; }
 }
 </style>
